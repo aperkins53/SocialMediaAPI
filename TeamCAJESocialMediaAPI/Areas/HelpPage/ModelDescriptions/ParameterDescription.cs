@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace TeamCAJESocialMediaAPI.Areas.HelpPage.ModelDescriptions
+namespace SocialMediaAPI.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {

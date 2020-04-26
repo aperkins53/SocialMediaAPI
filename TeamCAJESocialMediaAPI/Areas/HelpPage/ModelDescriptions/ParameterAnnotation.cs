@@ -1,6 +1,6 @@
 using System;
 
-namespace TeamCAJESocialMediaAPI.Areas.HelpPage.ModelDescriptions
+namespace SocialMediaAPI.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

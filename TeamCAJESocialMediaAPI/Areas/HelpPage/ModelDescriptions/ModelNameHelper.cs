@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace TeamCAJESocialMediaAPI.Areas.HelpPage.ModelDescriptions
+namespace SocialMediaAPI.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

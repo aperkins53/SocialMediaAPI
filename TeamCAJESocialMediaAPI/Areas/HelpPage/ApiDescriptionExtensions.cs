@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace TeamCAJESocialMediaAPI.Areas.HelpPage
+namespace SocialMediaAPI.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

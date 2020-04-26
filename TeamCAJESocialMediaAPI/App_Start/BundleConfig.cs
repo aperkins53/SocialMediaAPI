@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace TeamCAJESocialMediaAPI
+namespace SocialMediaAPI
 {
     public class BundleConfig
     {

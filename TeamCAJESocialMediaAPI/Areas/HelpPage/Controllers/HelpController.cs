@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using TeamCAJESocialMediaAPI.Areas.HelpPage.ModelDescriptions;
-using TeamCAJESocialMediaAPI.Areas.HelpPage.Models;
+using SocialMediaAPI.Areas.HelpPage.ModelDescriptions;
+using SocialMediaAPI.Areas.HelpPage.Models;
 
-namespace TeamCAJESocialMediaAPI.Areas.HelpPage.Controllers
+namespace SocialMediaAPI.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

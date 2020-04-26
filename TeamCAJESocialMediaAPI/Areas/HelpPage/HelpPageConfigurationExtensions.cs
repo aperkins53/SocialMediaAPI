@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using TeamCAJESocialMediaAPI.Areas.HelpPage.ModelDescriptions;
-using TeamCAJESocialMediaAPI.Areas.HelpPage.Models;
+using SocialMediaAPI.Areas.HelpPage.ModelDescriptions;
+using SocialMediaAPI.Areas.HelpPage.Models;
 
-namespace TeamCAJESocialMediaAPI.Areas.HelpPage
+namespace SocialMediaAPI.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {
