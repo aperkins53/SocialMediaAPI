@@ -57,8 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="PostCreate.cs" />
     <Compile Include="PostListItem.cs" />
+
+    <Compile Include="CommentCreate.cs" />
+    <Compile Include="CommentListItem.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
