@@ -11,31 +11,58 @@ using System.Web.Http;
 namespace TeamCAJESocialMediaAPI.Controllers
 {
     public class PostController : ApiController
-    { 
-            public IHttpActionResult Get()
-            {
-                PostServices postService = CreatePostService();
+    {
+        [HttpGet]
+        public IHttpActionResult Get()
+        {
+            PostServices postService = CreatePostService();
             var notes = postService.GetPost();
-                return Ok(notes);
-            }
-            public IHttpActionResult Post(PostCreate post)
-            {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
+            return Ok(notes);
+        }
+        [HttpPost]
+        public IHttpActionResult Post(PostCreate post)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-                var service = CreatePostService();
+            var service = CreatePostService();
 
-                if (!service.CreatePost(post))
-                    return InternalServerError();
+            if (!service.CreatePost(post))
+                return InternalServerError();
 
-                return Ok();
-            }
-            private PostServices CreatePostService()
-            {
-                var userId = Guid.Parse(User.Identity.GetUserId());
-                var noteService = new PostServices(userId);
-                return noteService;
-            }
+            return Ok();
+        }
+        private PostServices CreatePostService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var noteService = new PostServices(userId);
+            return noteService;
+        }
+
+        [HttpPut]
+        public IHttpActionResult put(PostUpdate post)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreatePostService();
+
+            if (!service.UpdatePost(post))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreatePostService();
+
+            if (!service.DeletePost(id))
+                return InternalServerError();
+
+            return Ok();
         }
     }
+}
 
