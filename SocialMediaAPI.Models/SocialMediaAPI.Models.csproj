@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="PostCreate.cs" />
     <Compile Include="PostListItem.cs" />
+    <Compile Include="PostUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -56,5 +56,36 @@ namespace SocialMediaAPI.Services
                 return query.ToArray();
             }
         }
+
+        public bool UpdatePost (PostUpdate model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Posts
+                        .Single(e => e.PostId == model.PostId && e.OwnerId == _userId);
+
+                entity.Title = model.UpdateTitle;
+                entity.PostContent = model.UpdateContent;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeletePost(int PostId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Posts
+                        .Single(e => e.PostId == PostId && e.OwnerId == _userId);
+
+                ctx.Posts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
