@@ -8,7 +8,7 @@ namespace SocialMediaAPI.Models
 {
     public class CommentEdit
     {
-        public int NoteId { get; set; }
+        public int CommentId { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
     }

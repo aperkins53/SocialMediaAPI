@@ -10,7 +10,7 @@ namespace SocialMediaAPI.Models
     public class CommentCreate
     {
         [Required]
-        [MinLength(1, ErrorMessage = "Please enter at least 1 character")]
+        [MinLength(3, ErrorMessage = "Please enter at least 3 characters")]
         [MaxLength(140, ErrorMessage = "You've exceeded the maximum character limit of 140 characters. Please shorten your comment.")]
         public string Content { get; set; }
     }

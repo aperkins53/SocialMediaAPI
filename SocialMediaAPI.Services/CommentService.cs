@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.ModelBinding;
 
 namespace SocialMediaAPI.Services
 {
@@ -34,7 +36,7 @@ namespace SocialMediaAPI.Services
             }
         }
 
-        public IEnumerable<CommentListItem> GetComment(int id)
+        public IEnumerable<CommentListItem> GetComment()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -55,7 +57,26 @@ namespace SocialMediaAPI.Services
             }
         }
 
-        public bool UpdateComment(Comment model)
+        public CommentDetail GetCommentById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.CommentId == id && e.OwnerId == _userId);
+                return
+                    new CommentDetail
+                    {
+                        CommentId = entity.CommentId,
+                        Content = entity.Content,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
+
+        public bool UpdateComment(CommentEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
