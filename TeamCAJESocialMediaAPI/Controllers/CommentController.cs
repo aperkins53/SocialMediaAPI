@@ -39,5 +39,35 @@ namespace TeamCAJESocialMediaAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            CommentService commentService = CreateCommentService();
+            var note = commentService.GetCommentById(id);
+            return Ok(note);
+        }
+
+        public IHttpActionResult Put(CommentEdit comment)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateCommentService();
+
+            if (!service.UpdateComment(comment))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateCommentService();
+
+            if (!service.DeleteComment(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }
