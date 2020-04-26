@@ -42,23 +42,23 @@ namespace TeamCAJESocialMediaAPI.Controllers
 
         public IHttpActionResult Get(int id)
         {
-            CommentService commentService = CreateCommentService();
-            var note = commentService.GetCommentById(id);
+            CommentService noteService = CreateCommentService();
+            var note = noteService.GetComment(id);
             return Ok(note);
         }
 
-        public IHttpActionResult Put(CommentEdit comment)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+        //public IHttpActionResult Put(CommentEdit comment)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
 
-            var service = CreateCommentService();
+        //    var service = CreateCommentService();
 
-            if (!service.UpdateComment(comment))
-                return InternalServerError();
+        //    if (!service.UpdateComment(comment))
+        //        return InternalServerError();
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
         public IHttpActionResult Delete(int id)
         {
