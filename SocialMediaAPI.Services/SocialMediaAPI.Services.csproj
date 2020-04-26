@@ -57,7 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="PostServices.cs" />
+
+    <Compile Include="CommentService.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +96,16 @@
     </ProjectReference>
     <ProjectReference Include="..\SocialMediaAPI.Models\SocialMediaAPI.Models.csproj">
       <Project>{1BB5C470-BEB3-49D1-B8AF-02C3EB007C4F}</Project>
+      <Name>SocialMediaAPI.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\SocialMediaAPI.Data.csproj">
+      <Project>{9ff2a30e-c53b-414d-a4ba-71f47b43456b}</Project>
+      <Name>SocialMediaAPI.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialMediaAPI.Models\SocialMediaAPI.Models.csproj">
+      <Project>{1bb5c470-beb3-49d1-b8af-02c3eb007c4f}</Project>
       <Name>SocialMediaAPI.Models</Name>
     </ProjectReference>
   </ItemGroup>
