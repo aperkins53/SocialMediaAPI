@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using TeamCAJESocialMediaAPI.Areas.HelpPage.ModelDescriptions;
+using SocialMediaAPI.Areas.HelpPage.ModelDescriptions;
 
-namespace TeamCAJESocialMediaAPI.Areas.HelpPage.Models
+namespace SocialMediaAPI.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

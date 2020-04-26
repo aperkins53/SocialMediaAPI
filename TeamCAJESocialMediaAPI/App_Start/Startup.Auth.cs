@@ -8,10 +8,11 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using TeamCAJESocialMediaAPI.Providers;
-using TeamCAJESocialMediaAPI.Models;
+using SocialMediaAPI.Providers;
+using SocialMediaAPI.Models;
+using SocialMediaAPI.Data;
 
-namespace TeamCAJESocialMediaAPI
+namespace SocialMediaAPI
 {
     public partial class Startup
     {

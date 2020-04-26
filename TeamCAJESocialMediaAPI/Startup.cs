@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(TeamCAJESocialMediaAPI.Startup))]
+[assembly: OwinStartup(typeof(SocialMediaAPI.Startup))]
 
-namespace TeamCAJESocialMediaAPI
+namespace SocialMediaAPI
 {
     public partial class Startup
     {

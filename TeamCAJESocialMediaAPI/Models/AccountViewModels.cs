@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TeamCAJESocialMediaAPI.Models
+namespace SocialMediaAPI.Models
 {
     // Models returned by AccountController actions.
 

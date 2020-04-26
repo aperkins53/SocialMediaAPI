@@ -13,11 +13,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using TeamCAJESocialMediaAPI.Models;
-using TeamCAJESocialMediaAPI.Providers;
-using TeamCAJESocialMediaAPI.Results;
+using SocialMediaAPI.Data;
+using SocialMediaAPI.Models;
+using SocialMediaAPI.Providers;
+using SocialMediaAPI.Results;
 
-namespace TeamCAJESocialMediaAPI.Controllers
+namespace SocialMediaAPI.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

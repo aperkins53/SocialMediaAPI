@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace TeamCAJESocialMediaAPI.Areas.HelpPage.ModelDescriptions
+namespace SocialMediaAPI.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

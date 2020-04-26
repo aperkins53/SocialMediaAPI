@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace TeamCAJESocialMediaAPI.Models
+namespace SocialMediaAPI.Models
 {
     // Models used as parameters to AccountController actions.
 
