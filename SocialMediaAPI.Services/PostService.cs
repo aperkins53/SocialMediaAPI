@@ -25,7 +25,7 @@ namespace SocialMediaAPI.Services
                     OwnerId = _userId,
                     Title = model.Title,
                     PostContent = model.Content,
-                    CreatedUtc = DateTimeOffset.Now
+                    CreatedUtc = DateTimeOffset.Now,
                 };
 
             using (var ctx = new ApplicationDbContext())

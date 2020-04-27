@@ -26,7 +26,8 @@ namespace SocialMediaAPI.Services
                 {
                     OwnerId = _userId,
                     Content = model.Content,
-                    CreatedUtc = DateTimeOffset.Now
+                    CreatedUtc = DateTimeOffset.Now,
+                    PostId = model.PostId
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -71,7 +72,6 @@ namespace SocialMediaAPI.Services
                         CommentId = entity.CommentId,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
@@ -85,7 +85,6 @@ namespace SocialMediaAPI.Services
                         .Comments
                         .Single(e => e.CommentId == model.CommentId && e.OwnerId == _userId);
                 entity.Content = model.Content;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
