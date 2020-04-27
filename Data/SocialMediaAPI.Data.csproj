@@ -90,8 +90,18 @@
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="LikePost.cs" />
+    <Compile Include="Migrations\202004272303107_InitialCreate.cs" />
+    <Compile Include="Migrations\202004272303107_InitialCreate.designer.cs">
+      <DependentUpon>202004272303107_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004272318541_CommentForeignKey.cs" />
+    <Compile Include="Migrations\202004272318541_CommentForeignKey.designer.cs">
+      <DependentUpon>202004272318541_CommentForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reply.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -117,6 +127,14 @@
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004272303107_InitialCreate.resx">
+      <DependentUpon>202004272303107_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004272318541_CommentForeignKey.resx">
+      <DependentUpon>202004272318541_CommentForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

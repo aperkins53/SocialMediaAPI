@@ -10,9 +10,11 @@ namespace Data
 {
     public class LikePost
     {
-        [Required]
-        [ForeignKey(nameof(Post))]
+        [ForeignKey("Post")]
         public int PostId { get; set; }
+        public virtual Post Post { get; set; }
+        [Key]
+        public int LikePostId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
         // One to many relationship. One Post can have many comments.

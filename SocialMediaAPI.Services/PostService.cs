@@ -70,7 +70,7 @@ namespace SocialMediaAPI.Services
                     {
                         PostId = entity.PostId,
                         Title = entity.Title,
-                        Content = entity.Content,
+                        Content = entity.PostContent,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -87,7 +87,7 @@ namespace SocialMediaAPI.Services
                         .Single(e => e.PostId == model.PostId && e.OwnerId == _userId);
 
                 entity.Title = model.Title;
-                entity.Content = model.Content;
+                entity.PostContent = model.Content;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

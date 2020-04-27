@@ -42,6 +42,7 @@ namespace SocialMediaAPI.Services
                 var query =
                     ctx
                         .Posts
+                        // refactor so that for a given post, return all likes for this post
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
@@ -52,7 +53,6 @@ namespace SocialMediaAPI.Services
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
-
                 return query.ToArray();
             }
         }

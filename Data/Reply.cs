@@ -1,7 +1,7 @@
 ﻿namespace Data
 {
-    public class Reply
+    public class Reply : Comment
     {
-
+        public bool isReply { get; set; }
     }
 }

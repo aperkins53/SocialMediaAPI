@@ -20,9 +20,11 @@ namespace Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        // One to many relationship. One Post can have many comments.
-        [ForeignKey(nameof(Post))]
+        //One to many relationship.One Post can have many comments.
+
+       [ForeignKey("Post")]
         public int PostId { get; set; }
+        public virtual Post Post { get; set; }
 
     }
 }
