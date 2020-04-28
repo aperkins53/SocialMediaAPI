@@ -1,5 +1,6 @@
 ﻿using Data;
 using Microsoft.AspNet.Identity;
+using SocialMediaAPI.Models;
 using SocialMediaAPI.Services;
 using System;
 using System.Collections.Generic;
@@ -15,29 +16,26 @@ namespace TeamCAJESocialMediaAPI.Controllers
         private ReplyService CreateReplyService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var likePostService = new ReplyService(userId);
-            return ReplyService;
+            var replyService = new ReplyService(userId);
+            return replyService;
         }
 
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(int id)
         {
             ReplyService replyService = CreateReplyService();
-            var reply = replyService.GetReply();
+            var reply = replyService.GetReply(id);
             return Ok(reply);
         }
-
-        public IHttpActionResult Post(Reply replyToCreate)
+        public IHttpActionResult PostReply(ReplyCreate reply)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
             var service = CreateReplyService();
-
-            if (!service.Reply(replyToCreate))
+            if (!service.CreateReply(reply))
                 return InternalServerError();
-
             return Ok();
         }
+
 
         public IHttpActionResult Delete(int id)
         {
