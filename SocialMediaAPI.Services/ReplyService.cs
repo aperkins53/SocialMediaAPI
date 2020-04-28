@@ -34,6 +34,44 @@ namespace SocialMediaAPI.Services
             }
         }
 
+        public ReplyListItem GetReply(int replyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        // refactor so that for a given post, return all likes for this post
+                        .Single(e => e.CommentId == replyId);
+
+                return
+                    new ReplyListItem
+                    {
+                        CommentId = entity.CommentId,
+                        OwnerId = entity.OwnerId,
+                        CreatedUtc = entity.CreatedUtc,
+                        Content = entity.Content
+                    };
+            }
+        }
+
+        public bool UpdateReply(ReplyEdit replyToEdit)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Reply
+                        .Single(e => e.CommentId == replyToEdit.CommentId && e.OwnerId == _userId);
+
+                entity.Content = replyToEdit.Content;
+                entity.OwnerId = replyToEdit.OwnerId;
+                entity.CreatedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         public bool DeleteReply(int commentId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -42,33 +80,12 @@ namespace SocialMediaAPI.Services
                 Reply replyToDelete = ctx.Reply.Find(commentId);
                 if (replyToDelete == null)
                 {
-                    
+
                 }
                 ctx.Reply.Remove(replyToDelete);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public Reply GetReply(int commentId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Comments
-                        // refactor so that for a given post, return all likes for this post
-                        .Where(e => e.CommentId == commentId)
-                        .Select(
-                            e =>
-                                new ReplyListItem
-                                {
-                                    PostId = e.PostId,
-                                    OwnerId = e.OwnerId,
-                                    CreatedUtc = e.CreatedUtc
-                                }
-                        );
-                return entity;
-            }
-        }
     }
 }

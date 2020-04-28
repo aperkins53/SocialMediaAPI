@@ -2,6 +2,6 @@
 {
     public class Reply : Comment
     {
-        public bool isReply { get; set; }
+        public bool IsReply { get; set; }
     }
 }

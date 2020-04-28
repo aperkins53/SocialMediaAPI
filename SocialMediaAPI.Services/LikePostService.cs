@@ -41,14 +41,14 @@ namespace SocialMediaAPI.Services
             {
                 var query =
                     ctx
-                        .Posts
+                        .Reply
                         // refactor so that for a given post, return all likes for this post
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new ReplyListItem
                                 {
-                                    PostId = e.PostId, 
+                                    CommentId = e.CommentId, 
                                     OwnerId = e.OwnerId,
                                     CreatedUtc = e.CreatedUtc
                                 }

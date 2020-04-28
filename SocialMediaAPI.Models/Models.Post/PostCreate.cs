@@ -14,5 +14,11 @@ namespace SocialMediaAPI.Models
         [MaxLength(140, ErrorMessage = "You've exceeded the maximum character limit of 140 characters. Please shorten your post.")]
         public string Content { get; set; }
         public string Title { get; set; }
+        public int PostId { get; set; }
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

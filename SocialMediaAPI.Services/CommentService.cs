@@ -50,7 +50,10 @@ namespace SocialMediaAPI.Services
                                 new CommentListItem
                                 {
                                     CommentId = e.CommentId,
-                                    CreatedUtc = e.CreatedUtc
+                                    CreatedUtc = e.CreatedUtc,
+                                    OwnerId = e.OwnerId,
+                                    CommentContent = e.Content,
+
                                 }
                         );
 
@@ -58,15 +61,24 @@ namespace SocialMediaAPI.Services
             }
         }
 
-        public string GetCommentById(int id)
+        public CommentListItem GetCommentById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.PostId == id);
-                return entity.Content;
+                        .Single(e => e.CommentId == id && e.OwnerId == _userId);
+
+                return
+                    new CommentListItem
+                    {
+                        CommentId = entity.CommentId,
+                        CreatedUtc = entity.CreatedUtc,
+                        OwnerId = entity.OwnerId,
+                        CommentContent = entity.Content,
+
+                    };
             }
         }
 

@@ -118,6 +118,10 @@
     <Compile Include="Migrations\202004280016300_sickOfThis.designer.cs">
       <DependentUpon>202004280016300_sickOfThis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004282230552_broken.cs" />
+    <Compile Include="Migrations\202004282230552_broken.designer.cs">
+      <DependentUpon>202004282230552_broken.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -160,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004280016300_sickOfThis.resx">
       <DependentUpon>202004280016300_sickOfThis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004282230552_broken.resx">
+      <DependentUpon>202004282230552_broken.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

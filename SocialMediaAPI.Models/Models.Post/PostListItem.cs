@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace SocialMediaAPI.Models
 {
-    public class CommentListItem
+   public class PostListItem
     {
-        public int CommentId { get; set; }
-        public string CommentContent { get; set; }
-        [Display(Name ="Created")]
+        public Guid OwnerId { get; set; }
+        public int PostId { get; set; }
+       
+        public string Title { get; set; }
+
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }
