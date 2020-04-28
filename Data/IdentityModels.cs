@@ -36,9 +36,8 @@ namespace SocialMediaAPI.Data
             return new ApplicationDbContext();
         }
 
-
+        public DbSet<Reply> Reply { get; set; }
         public DbSet<Post> Posts { get; set; }
-        
         public DbSet<Comment> Comments { get; set; }
         public DbSet<LikePost> LikePost { get; set; }
 

@@ -6,54 +6,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http.Results;
 
 namespace SocialMediaAPI.Services
 {
-    public class LikePostService
+    public class ReplyService
     {
         private readonly Guid _userId;
-
-        public LikePostService(Guid userId)
+        public ReplyService(Guid userId)
         {
             _userId = userId;
         }
 
-
-        public bool LikePost(LikePost postToLike)
+        public bool CreateReply(ReplyCreate model)
         {
             var entity =
-                new LikePost()
+                new Reply()
                 {
                     OwnerId = _userId,
-                    CreatedUtc = DateTimeOffset.Now
+                    Content = model.Content,
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.LikePost.Add(entity);
+                ctx.Reply.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<ReplyListItem> GetPostLikes()
+        public bool DeleteReply(int commentId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                // Find the product we want to update
+                Reply replyToDelete = ctx.Reply.Find(commentId);
+                if (replyToDelete == null)
+                {
+                    
+                }
+                ctx.Reply.Remove(replyToDelete);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public Reply GetReply(int commentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
                     ctx
-                        .Posts
+                        .Comments
                         // refactor so that for a given post, return all likes for this post
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.CommentId == commentId)
                         .Select(
                             e =>
                                 new ReplyListItem
                                 {
-                                    PostId = e.PostId, 
+                                    PostId = e.PostId,
                                     OwnerId = e.OwnerId,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
-                return query.ToArray();
+                return entity;
             }
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SocialMediaAPI.Models
 {
-    class ReplyCreate
+    public class ReplyCreate
     {
         [Required]
         public string Content { get; set; }

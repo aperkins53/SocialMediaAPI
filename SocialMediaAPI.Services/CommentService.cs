@@ -58,21 +58,15 @@ namespace SocialMediaAPI.Services
             }
         }
 
-        public CommentDetail GetCommentById(int id)
+        public string GetCommentById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.CommentId == id && e.OwnerId == _userId);
-                return
-                    new CommentDetail
-                    {
-                        CommentId = entity.CommentId,
-                        Content = entity.Content,
-                        CreatedUtc = entity.CreatedUtc,
-                    };
+                        .Single(e => e.PostId == id);
+                return entity.Content;
             }
         }
 
@@ -97,7 +91,7 @@ namespace SocialMediaAPI.Services
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.CommentId == commentId && e.OwnerId == _userId);
+                        .Single(e => e.CommentId == commentId);
 
                 ctx.Comments.Remove(entity);
 

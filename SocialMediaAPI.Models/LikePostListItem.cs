@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SocialMediaAPI.Models
 {
-    public class LikePostListItem
+    public class ReplyListItem
     {
         public Guid OwnerId { get; set; }
         public bool IsLiked { get; set; }

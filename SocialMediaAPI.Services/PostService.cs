@@ -72,7 +72,7 @@ namespace SocialMediaAPI.Services
                         Title = entity.Title,
                         Content = entity.PostContent,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        //ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
@@ -88,7 +88,7 @@ namespace SocialMediaAPI.Services
 
                 entity.Title = model.Title;
                 entity.PostContent = model.Content;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                //entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
