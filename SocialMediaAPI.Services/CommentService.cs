@@ -24,7 +24,6 @@ namespace SocialMediaAPI.Services
             var entity =
                 new Comment()
                 {
-                    OwnerId = _userId,
                     Content = model.Content,
                     CreatedUtc = DateTimeOffset.Now,
                     PostId = model.PostId
@@ -44,16 +43,14 @@ namespace SocialMediaAPI.Services
                 var query =
                     ctx
                         .Comments
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(comment => comment.OwnerId == _userId)
                         .Select(
                             e =>
                                 new CommentListItem
                                 {
                                     CommentId = e.CommentId,
                                     CreatedUtc = e.CreatedUtc,
-                                    OwnerId = e.OwnerId,
-                                    CommentContent = e.Content,
-
+                                    CommentContent = e.Content
                                 }
                         );
 

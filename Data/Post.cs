@@ -16,7 +16,6 @@ namespace Data
         public string Title { get; set; }
         [Required]
         public string PostContent { get; set; }
-        [Required]
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }

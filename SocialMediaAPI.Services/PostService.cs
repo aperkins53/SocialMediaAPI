@@ -69,6 +69,7 @@ namespace SocialMediaAPI.Services
                     new PostDetail
                     {
                         PostId = entity.PostId,
+                        OwnerId = entity.OwnerId,
                         Title = entity.Title,
                         Content = entity.PostContent,
                         CreatedUtc = entity.CreatedUtc,

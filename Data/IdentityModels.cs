@@ -20,7 +20,9 @@ namespace SocialMediaAPI.Data
             // Add custom user claims here
             return userIdentity;
         }
+
     }
+
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -29,8 +31,6 @@ namespace SocialMediaAPI.Data
         {
         }
 
-        
-        
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -43,6 +43,7 @@ namespace SocialMediaAPI.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();

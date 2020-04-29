@@ -122,10 +122,19 @@
     <Compile Include="Migrations\202004282230552_broken.designer.cs">
       <DependentUpon>202004282230552_broken.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004290223072_lolwat.cs" />
+    <Compile Include="Migrations\202004290223072_lolwat.designer.cs">
+      <DependentUpon>202004290223072_lolwat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004290225562_lolwat2.cs" />
+    <Compile Include="Migrations\202004290225562_lolwat2.designer.cs">
+      <DependentUpon>202004290225562_lolwat2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -167,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004282230552_broken.resx">
       <DependentUpon>202004282230552_broken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004290223072_lolwat.resx">
+      <DependentUpon>202004290223072_lolwat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004290225562_lolwat2.resx">
+      <DependentUpon>202004290225562_lolwat2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
