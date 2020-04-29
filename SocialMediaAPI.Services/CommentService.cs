@@ -24,9 +24,9 @@ namespace SocialMediaAPI.Services
             var entity =
                 new Comment()
                 {
-                    OwnerId = _userId,
                     Content = model.Content,
-                    CreatedUtc = DateTimeOffset.Now
+                    CreatedUtc = DateTimeOffset.Now,
+                    PostId = model.PostId
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -43,13 +43,14 @@ namespace SocialMediaAPI.Services
                 var query =
                     ctx
                         .Comments
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(comment => comment.OwnerId == _userId)
                         .Select(
                             e =>
                                 new CommentListItem
                                 {
                                     CommentId = e.CommentId,
-                                    CreatedUtc = e.CreatedUtc
+                                    CreatedUtc = e.CreatedUtc,
+                                    CommentContent = e.Content
                                 }
                         );
 
@@ -57,7 +58,7 @@ namespace SocialMediaAPI.Services
             }
         }
 
-        public CommentDetail GetCommentById(int id)
+        public CommentListItem GetCommentById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -65,13 +66,15 @@ namespace SocialMediaAPI.Services
                     ctx
                         .Comments
                         .Single(e => e.CommentId == id && e.OwnerId == _userId);
+
                 return
-                    new CommentDetail
+                    new CommentListItem
                     {
                         CommentId = entity.CommentId,
-                        Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        OwnerId = entity.OwnerId,
+                        CommentContent = entity.Content,
+
                     };
             }
         }
@@ -85,7 +88,6 @@ namespace SocialMediaAPI.Services
                         .Comments
                         .Single(e => e.CommentId == model.CommentId && e.OwnerId == _userId);
                 entity.Content = model.Content;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -98,7 +100,7 @@ namespace SocialMediaAPI.Services
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.CommentId == commentId && e.OwnerId == _userId);
+                        .Single(e => e.CommentId == commentId);
 
                 ctx.Comments.Remove(entity);
 

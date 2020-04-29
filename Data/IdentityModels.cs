@@ -20,7 +20,9 @@ namespace SocialMediaAPI.Data
             // Add custom user claims here
             return userIdentity;
         }
+
     }
+
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -29,20 +31,19 @@ namespace SocialMediaAPI.Data
         {
         }
 
-        
-        
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
 
-
+        public DbSet<Reply> Reply { get; set; }
         public DbSet<Post> Posts { get; set; }
-        
         public DbSet<Comment> Comments { get; set; }
-        
+        public DbSet<LikePost> LikePost { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();

@@ -5,18 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace SocialMediaAPI.Models
 {
-    public class Post
-    { [Key]
-        public int PostId { get; set; }
-        [Required]
+    public class ReplyCreate
+    {
         public Guid OwnerId { get; set; }
-        [Required]
-        public string Title { get; set; }
-        [Required]
-        public string PostContent { get; set; }
+        public bool IsLiked { get; set; }
+        public int CommentId { get; set; }
+        public string Content { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }
-    

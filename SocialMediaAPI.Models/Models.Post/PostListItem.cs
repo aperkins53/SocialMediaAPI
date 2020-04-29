@@ -9,6 +9,7 @@ namespace SocialMediaAPI.Models
 {
    public class PostListItem
     {
+        public Guid OwnerId { get; set; }
         public int PostId { get; set; }
        
         public string Title { get; set; }

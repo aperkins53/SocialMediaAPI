@@ -57,14 +57,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
-    <Compile Include="PostCreate.cs" />
-    <Compile Include="PostListItem.cs" />
-
-    <Compile Include="CommentCreate.cs" />
-    <Compile Include="CommentListItem.cs" />
-
+    <Compile Include="Models.Comment\CommentDetail.cs" />
+    <Compile Include="LikePostCreate.cs" />
+    <Compile Include="Models.Reply\ReplyListItem.cs" />
+    <Compile Include="Models.Post\PostCreate.cs" />
+    <Compile Include="Models.Post\PostDetail.cs" />
+    <Compile Include="Models.Post\PostEdit.cs" />
+    <Compile Include="Models.Post\PostListItem.cs" />
+    <Compile Include="Models.Comment\CommentCreate.cs" />
+    <Compile Include="Models.Comment\CommentEdit.cs" />
+    <Compile Include="Models.Comment\CommentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models.Reply\ReplyCreate.cs" />
+    <Compile Include="Models.Reply\ReplyDetail.cs" />
+    <Compile Include="Models.Reply\ReplyEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

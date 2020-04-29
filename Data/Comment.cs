@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,12 @@ namespace Data
         public string Content { get; set; }
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? ModifiedUtc { get; set; }
+
+        //One to many relationship.One Post can have many comments.
+
+       [ForeignKey("Post")]
+        public int PostId { get; set; }
+        public virtual Post Post { get; set; }
 
     }
 }

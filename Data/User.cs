@@ -1,16 +1,22 @@
-﻿using System;
+﻿using SocialMediaAPI.Data;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Data
 {
-    public class User
+    public class User : ApplicationUser
     {
-        public Guid OwnerId { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-
+        [ForeignKey("Post")]
+        public int PostId { get; set; }
+        public virtual Post Post { get; set; }
+        [ForeignKey("Comment")]
+        public int CommentId { get; set; }
+        public virtual Comment Comment { get; set; }
     }
 }

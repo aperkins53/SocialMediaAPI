@@ -61,11 +61,17 @@
     <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\TeamCAJESocialMediaAPI\packages\Microsoft.Owin.Security.OAuth.4.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\TeamCAJESocialMediaAPI\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\TeamCAJESocialMediaAPI\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\TeamCAJESocialMediaAPI\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\TeamCAJESocialMediaAPI\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -79,18 +85,55 @@
     <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\TeamCAJESocialMediaAPI\packages\Microsoft.AspNet.WebApi.Owin.5.2.7\lib\net45\System.Web.Http.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\TeamCAJESocialMediaAPI\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\TeamCAJESocialMediaAPI\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="LikePost.cs" />
+    <Compile Include="Migrations\202004272303107_InitialCreate.cs" />
+    <Compile Include="Migrations\202004272303107_InitialCreate.designer.cs">
+      <DependentUpon>202004272303107_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004272318541_CommentForeignKey.cs" />
+    <Compile Include="Migrations\202004272318541_CommentForeignKey.designer.cs">
+      <DependentUpon>202004272318541_CommentForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004272333168_RebuildForToken.cs" />
+    <Compile Include="Migrations\202004272333168_RebuildForToken.designer.cs">
+      <DependentUpon>202004272333168_RebuildForToken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004280016300_sickOfThis.cs" />
+    <Compile Include="Migrations\202004280016300_sickOfThis.designer.cs">
+      <DependentUpon>202004280016300_sickOfThis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004282230552_broken.cs" />
+    <Compile Include="Migrations\202004282230552_broken.designer.cs">
+      <DependentUpon>202004282230552_broken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004290223072_lolwat.cs" />
+    <Compile Include="Migrations\202004290223072_lolwat.designer.cs">
+      <DependentUpon>202004290223072_lolwat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004290225562_lolwat2.cs" />
+    <Compile Include="Migrations\202004290225562_lolwat2.designer.cs">
+      <DependentUpon>202004290225562_lolwat2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reply.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +160,29 @@
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004272303107_InitialCreate.resx">
+      <DependentUpon>202004272303107_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004272318541_CommentForeignKey.resx">
+      <DependentUpon>202004272318541_CommentForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004272333168_RebuildForToken.resx">
+      <DependentUpon>202004272333168_RebuildForToken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004280016300_sickOfThis.resx">
+      <DependentUpon>202004280016300_sickOfThis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004282230552_broken.resx">
+      <DependentUpon>202004282230552_broken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004290223072_lolwat.resx">
+      <DependentUpon>202004290223072_lolwat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004290225562_lolwat2.resx">
+      <DependentUpon>202004290225562_lolwat2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

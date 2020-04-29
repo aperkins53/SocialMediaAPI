@@ -9,50 +9,50 @@ using System.Threading.Tasks;
 
 namespace SocialMediaAPI.Services
 {
-    public class PostServices
+    public class LikePostService
     {
         private readonly Guid _userId;
-        public PostServices(Guid userId)
+
+        public LikePostService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreatePost(PostCreate model)
+
+        public bool LikePost(LikePost postToLike)
         {
             var entity =
-                new Post()
+                new LikePost()
                 {
                     OwnerId = _userId,
-                    Title = model.Title,
-                    PostContent = model.Content,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Posts.Add(entity);
+                ctx.LikePost.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<PostListItem> GetPost()
+        public IEnumerable<ReplyListItem> GetPostLikes()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Posts
+                        .Reply
+                        // refactor so that for a given post, return all likes for this post
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
-                                new PostListItem
+                                new ReplyListItem
                                 {
-                                    PostId = e.PostId,
-                                    Title = e.Title,
+                                    CommentId = e.CommentId, 
+                                    OwnerId = e.OwnerId,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
-
                 return query.ToArray();
             }
         }
